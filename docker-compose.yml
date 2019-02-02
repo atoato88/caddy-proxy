@@ -1,0 +1,16 @@
+version: '3'
+services:
+  proxy:
+    image: abiosoft/caddy
+    command:
+      - -conf
+      - /Caddyfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./template/Caddyfile:/Caddyfile
+    restart: always
+    cap_add:
+    - NET_ADMIN
+    network_mode: "host"
